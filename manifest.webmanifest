@@ -1,6 +1,6 @@
 {
-  "name": "マンスーン・ヤスミノ プレイヤー",
-  "short_name": "マンスーン",
+  "name": "マンスーン・ヤスミノの音声放送 プレイヤー",
+  "short_name": "音声放送",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6efe2",
