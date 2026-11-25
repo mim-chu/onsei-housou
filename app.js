@@ -306,6 +306,38 @@
     if (nx) { playEpisode(nx, true); } else { render(); }
   });
 
+
+  // PiP support: a tiny silent video WITH real frames rides in the
+  // player bar as artwork, already playing; it carries the PiP window
+  // while the episode audio keeps playing alongside it (an audio-only
+  // element cannot enter PiP on iOS).
+  var pipBtn = document.getElementById("btn-pip");
+  var pv = document.getElementById("pip-video");
+  var pipStarted = false;
+  if (pipBtn && pv) {
+    pipBtn.onclick = function () {
+      try {
+        if (pv.paused) { pv.play(); }
+        if (typeof pv.webkitSetPresentationMode === "function" &&
+            pv.webkitPresentationMode !== "picture-in-picture") {
+          pv.webkitSetPresentationMode("picture-in-picture");
+          pipStarted = true;
+        } else if (typeof pv.requestPictureInPicture === "function") {
+          pv.requestPictureInPicture();
+          pipStarted = true;
+        }
+      } catch (e) {}
+    };
+    audio.addEventListener("play", function () {
+      if (pipStarted && pv.paused) { try { pv.play(); } catch (e) {} }
+    });
+    audio.addEventListener("pause", function () {
+      if (pipStarted && !pv.paused) { try { pv.pause(); } catch (e) {} }
+    });
+  } else if (pipBtn) {
+    pipBtn.style.display = "none";
+  }
+
   playBtn.onclick = function () {
     if (!current) {
       var c = resumeChoice();
