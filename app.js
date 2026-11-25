@@ -328,6 +328,12 @@
         }
       } catch (e) {}
     };
+    pv.onclick = function () {
+      try {
+        if (typeof pv.webkitEnterFullscreen === "function") { pv.webkitEnterFullscreen(); }
+        else if (typeof pv.requestFullscreen === "function") { pv.requestFullscreen(); }
+      } catch (e) {}
+    };
     audio.addEventListener("play", function () {
       if (pipStarted && pv.paused) { try { pv.play(); } catch (e) {} }
     });
