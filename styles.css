@@ -7,6 +7,7 @@ body.compact { padding-bottom: 118px; }
 .brand { float: left; font-family: "Montserrat", "Arial Black", "Hiragino Sans", sans-serif; font-weight: 900; font-style: italic; font-size: 30px; letter-spacing: 0; color: #fff; -webkit-text-stroke: 1.4px #33231c; text-shadow: none; }
 .brand .rd { color: #c73e1d; }
 .badge { float: right; font-size: 12px; background: #c73e1d; color: #fff; padding: 3px 8px; border-radius: 10px; margin-top: 4px; }
+.share-btn { float: right; background: #fff; border: 1.5px solid #555; padding: 3px 7px; border-radius: 10px; margin: 4px 8px 0 0; cursor: pointer; line-height: 0; }
 .main { padding-top: 16px; }
 .hero { background: #fff; border: 2px solid #33231c; border-radius: 12px; padding: 16px; margin-bottom: 20px; }
 .hero-label { color: #c73e1d; font-size: 13px; font-weight: bold; margin: 0 0 6px; }
